@@ -1,0 +1,1493 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>哗咪动漫 - 新番速递与深度解析</title>
+  <meta name="description" content="哗咪动漫汇聚2026年秋季新番速递、经典作品深度解析、分类片单与社区热议，适合追番观众与动漫爱好者发现值得投入时间的作品与话题。">
+  <meta name="keywords" content="新番速递, 秋季动画, 动漫解析, 追番指南, 番剧分类">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f5a623'/%3E%3Ccircle cx='38' cy='42' r='8' fill='%231a1a2e'/%3E%3Ccircle cx='62' cy='42' r='8' fill='%231a1a2e'/%3E%3Cpath d='M35 65 Q50 80 65 65' stroke='%231a1a2e' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --panel: #ffffff;
+      --ink: #1e1e2a;
+      --ink-soft: #4a4a5a;
+      --ink-mute: #7a7a8a;
+      --accent: #f5a623;
+      --accent-deep: #d18b0f;
+      --accent-soft: #fef3e0;
+      --line: #e6e2dc;
+      --radius-s: 6px;
+      --radius-m: 12px;
+      --radius-l: 20px;
+      --shadow-s: 0 1px 3px rgba(0,0,0,0.04);
+      --shadow-m: 0 4px 16px rgba(0,0,0,0.06);
+      --font: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+      --sticky-offset: 96px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* ---- 吸顶公告条 ---- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      padding: 8px 0;
+      text-align: center;
+      letter-spacing: 0.02em;
+    }
+    .topbar strong { color: var(--accent); font-weight: 600; }
+
+    /* ---- 吸顶页头 ---- */
+    .site-header {
+      position: sticky;
+      top: 36px;
+      z-index: 99;
+      background: rgba(247,245,242,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 0 24px;
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      height: 60px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand svg { width: 34px; height: 34px; }
+    .brand-text {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+    .nav-main {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink-soft);
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-main::-webkit-scrollbar { display: none; }
+    .nav-main a { white-space: nowrap; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.2s; }
+    .nav-main a:hover { border-color: var(--accent); color: var(--ink); }
+    .header-search {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      padding: 6px 14px;
+      flex-shrink: 0;
+    }
+    .header-search input {
+      border: none;
+      outline: none;
+      font-size: 13px;
+      width: 130px;
+      background: transparent;
+      color: var(--ink);
+    }
+    .header-search input::placeholder { color: var(--ink-mute); }
+    .header-search button {
+      background: var(--accent);
+      border: none;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .header-search button:hover { background: var(--accent-deep); }
+
+    /* ---- 主容器 ---- */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---- 首屏 ---- */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+      color: #fff;
+      border-radius: var(--radius-l);
+      margin: 28px 0 36px;
+      padding: 48px 56px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -40px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(245,166,35,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-left { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.78);
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 26px;
+      border-radius: 40px;
+      transition: background 0.2s;
+      border: none;
+    }
+    .btn-primary:hover { background: var(--accent-deep); }
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 26px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); }
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg { width: 100%; max-width: 300px; height: auto; }
+
+    /* ---- 三栏布局 ---- */
+    .layout-three {
+      display: grid;
+      grid-template-columns: 180px 1fr 260px;
+      gap: 28px;
+      align-items: start;
+      padding-bottom: 48px;
+    }
+
+    /* ---- 左侧频道索引 ---- */
+    .channel-index {
+      position: sticky;
+      top: var(--sticky-offset);
+    }
+    .channel-index h2 {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink-mute);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+    }
+    .channel-list { display: flex; flex-direction: column; gap: 2px; }
+    .channel-list a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 10px;
+      font-size: 14px;
+      color: var(--ink-soft);
+      border-radius: var(--radius-s);
+      transition: background 0.15s, color 0.15s;
+    }
+    .channel-list a:hover { background: var(--accent-soft); color: var(--ink); }
+    .channel-list a .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ---- 中间主内容 ---- */
+    .main-content { min-width: 0; }
+    .section { margin-bottom: 40px; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      gap: 12px;
+    }
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      position: relative;
+      padding-left: 14px;
+    }
+    .section-header h2::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 4px; bottom: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+    .section-header .more-link {
+      font-size: 13px;
+      color: var(--ink-mute);
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .section-header .more-link:hover { color: var(--accent-deep); }
+
+    /* ---- 概览 ---- */
+    .overview-text {
+      background: var(--panel);
+      border-radius: var(--radius-m);
+      padding: 24px 28px;
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--ink-soft);
+      box-shadow: var(--shadow-s);
+      border: 1px solid var(--line);
+    }
+    .overview-text p + p { margin-top: 12px; }
+    .overview-text strong { color: var(--ink); }
+
+    /* ---- 精选卡片 ---- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 18px;
+    }
+    .anime-card {
+      background: var(--panel);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-s);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .anime-card:hover { box-shadow: var(--shadow-m); transform: translateY(-2px); }
+    .anime-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #e8e4de;
+    }
+    .card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .tag.alt { background: #eef4ff; color: #3a6bc4; }
+    .anime-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--ink-mute);
+      line-height: 1.6;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--ink-mute);
+    }
+    .card-meta .score { color: var(--accent-deep); font-weight: 700; }
+
+    /* ---- 最新更新列表 ---- */
+    .update-list { display: flex; flex-direction: column; gap: 0; }
+    .update-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.15s;
+    }
+    .update-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .update-item:last-child { border-radius: 0 0 var(--radius-m) var(--radius-m); border-bottom: none; }
+    .update-item:hover { background: #fdfaf5; }
+    .update-time {
+      font-size: 12px;
+      color: var(--ink-mute);
+      white-space: nowrap;
+      min-width: 76px;
+      padding-top: 2px;
+    }
+    .update-title { font-weight: 600; font-size: 14px; color: var(--ink); }
+    .update-summary { font-size: 13px; color: var(--ink-mute); margin-top: 2px; }
+
+    /* ---- 分类入口 ---- */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      padding: 18px 16px;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .category-item:hover { border-color: var(--accent); box-shadow: var(--shadow-s); }
+    .category-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .category-item h3 { font-size: 14px; font-weight: 600; }
+    .category-item p { font-size: 12px; color: var(--ink-mute); line-height: 1.4; }
+
+    /* ---- 深度解析 ---- */
+    .deep-read {
+      background: var(--panel);
+      border-radius: var(--radius-m);
+      padding: 32px 36px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-s);
+    }
+    .deep-read h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin: 24px 0 10px;
+      color: var(--ink);
+      padding-left: 10px;
+      border-left: 3px solid var(--accent);
+    }
+    .deep-read h3:first-of-type { margin-top: 0; }
+    .deep-read p { font-size: 14px; line-height: 1.9; color: var(--ink-soft); margin-bottom: 10px; }
+    .deep-read ul { margin: 8px 0 14px 18px; list-style: disc; }
+    .deep-read li { font-size: 14px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 4px; }
+    .deep-read strong { color: var(--ink); }
+
+    /* ---- 体验指南 ---- */
+    .guide-steps { display: flex; flex-direction: column; gap: 0; }
+    .guide-step {
+      display: flex;
+      gap: 18px;
+      padding: 16px 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-bottom: none;
+      align-items: flex-start;
+    }
+    .guide-step:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .guide-step:last-child { border-radius: 0 0 var(--radius-m) var(--radius-m); border-bottom: 1px solid var(--line); }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-content h3 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .step-content p { font-size: 13px; color: var(--ink-mute); line-height: 1.7; }
+
+    /* ---- FAQ ---- */
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-item {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--ink-mute);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 12px;
+    }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item summary:hover { background: #fdfaf5; }
+    .faq-answer {
+      padding: 0 18px 16px;
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+    }
+
+    /* ---- 用户评论 ---- */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 12px;
+    }
+    .comment-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      padding: 14px 16px;
+    }
+    .comment-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .comment-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-soft), #fce4b8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-deep);
+      flex-shrink: 0;
+    }
+    .comment-name { font-size: 13px; font-weight: 600; }
+    .comment-text { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+    .comment-target { font-size: 11px; color: var(--accent-deep); margin-top: 6px; font-weight: 500; }
+
+    /* ---- 相关资讯 ---- */
+    .news-list { display: flex; flex-direction: column; gap: 12px; }
+    .news-item {
+      display: flex;
+      gap: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .news-item:hover { box-shadow: var(--shadow-s); }
+    .news-item img {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #e8e4de;
+    }
+    .news-content { padding: 12px 16px 12px 0; flex: 1; min-width: 0; }
+    .news-date { font-size: 12px; color: var(--ink-mute); margin-bottom: 4px; }
+    .news-title { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
+    .news-summary { font-size: 13px; color: var(--ink-mute); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* ---- 相关推荐 ---- */
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-cloud a {
+      display: inline-block;
+      padding: 7px 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      transition: all 0.2s;
+    }
+    .tag-cloud a:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
+
+    /* ---- 排行榜 ---- */
+    .ranking-list { display: flex; flex-direction: column; gap: 0; }
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-bottom: none;
+    }
+    .ranking-item:first-child { border-radius: var(--radius-m) var(--radius-m) 0 0; }
+    .ranking-item:last-child { border-radius: 0 0 var(--radius-m) var(--radius-m); border-bottom: 1px solid var(--line); }
+    .rank-num {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink-mute);
+      min-width: 28px;
+      text-align: center;
+    }
+    .ranking-item:nth-child(1) .rank-num { color: var(--accent-deep); }
+    .ranking-item:nth-child(2) .rank-num { color: #b8860b; }
+    .ranking-item:nth-child(3) .rank-num { color: #cd853f; }
+    .rank-info { flex: 1; }
+    .rank-info h3 { font-size: 14px; font-weight: 600; }
+    .rank-info p { font-size: 12px; color: var(--ink-mute); }
+    .rank-score { font-size: 14px; font-weight: 700; color: var(--accent-deep); }
+
+    /* ---- 右侧辅助栏 ---- */
+    .sidebar {
+      position: sticky;
+      top: var(--sticky-offset);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .sidebar-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      padding: 18px 16px;
+      box-shadow: var(--shadow-s);
+    }
+    .sidebar-box h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sidebar-box h3 .accent-dot {
+      width: 4px; height: 16px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .hot-list { display: flex; flex-direction: column; gap: 10px; }
+    .hot-item { display: flex; gap: 10px; align-items: flex-start; }
+    .hot-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink-mute);
+      min-width: 18px;
+      text-align: center;
+    }
+    .hot-item:nth-child(1) .hot-num { color: var(--accent-deep); }
+    .hot-item:nth-child(2) .hot-num { color: var(--accent-deep); }
+    .hot-item:nth-child(3) .hot-num { color: var(--accent-deep); }
+    .hot-title { font-size: 13px; font-weight: 500; line-height: 1.4; }
+    .hot-meta { font-size: 11px; color: var(--ink-mute); margin-top: 1px; }
+
+    .update-stream { display: flex; flex-direction: column; gap: 10px; }
+    .stream-item { font-size: 13px; line-height: 1.5; padding-bottom: 10px; border-bottom: 1px dashed var(--line); }
+    .stream-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .stream-time { font-size: 11px; color: var(--ink-mute); margin-bottom: 2px; }
+
+    /* ---- 页尾 ---- */
+    .site-footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.65);
+      padding: 48px 24px 28px;
+      margin-top: 20px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 36px;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-brand svg { width: 30px; height: 30px; }
+    .footer-brand span { font-size: 18px; font-weight: 700; color: #fff; }
+    .footer-desc { font-size: 13px; line-height: 1.7; max-width: 280px; }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      padding: 3px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      max-width: 1360px;
+      margin: 32px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ---- 响应式 ---- */
+    @media (max-width: 1024px) {
+      .layout-three { grid-template-columns: 1fr 240px; }
+      .channel-index { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 36px 32px; }
+      .hero-visual { display: none; }
+      .hero h1 { font-size: 32px; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 740px) {
+      .layout-three { grid-template-columns: 1fr; }
+      .sidebar { position: static; margin-top: 8px; }
+      .hero { padding: 28px 20px; border-radius: var(--radius-m); }
+      .hero h1 { font-size: 26px; }
+      .hero-desc { font-size: 14px; }
+      .header-inner { gap: 12px; height: 54px; }
+      .nav-main { gap: 14px; font-size: 13px; }
+      .header-search input { width: 80px; }
+      .section-header h2 { font-size: 17px; }
+      .card-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .anime-card img { height: 120px; }
+      .comment-grid { grid-template-columns: 1fr; }
+      .news-item img { width: 90px; height: 70px; }
+      .deep-read { padding: 20px 16px; }
+      .container { padding: 0 16px; }
+      .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+      .topbar { font-size: 11px; padding: 6px 12px; }
+      .site-header { top: 30px; }
+      :root { --sticky-offset: 88px; }
+    }
+    @media (max-width: 380px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 22px; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="topbar">
+    <strong>本周新增 14 部秋季新番</strong> · 《葬送的芙莉莲》第二季定档 11 月 15 日 · 《药屋少女的呢喃》第 18 集已更新
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/#hero" class="brand" aria-label="哗咪动漫首页">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="#f5a623"/>
+          <circle cx="38" cy="42" r="8" fill="#1a1a2e"/>
+          <circle cx="62" cy="42" r="8" fill="#1a1a2e"/>
+          <path d="M35 65 Q50 80 65 65" stroke="#1a1a2e" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">哗咪动漫</span>
+      </a>
+      <nav class="nav-main" aria-label="主题导航">
+        <a href="/#new-season">新番速递</a>
+        <a href="/#category">番剧分类</a>
+        <a href="/#deep-read">深度解析</a>
+        <a href="/#guide">追番指南</a>
+        <a href="/#ranking">排行榜</a>
+        <a href="/#news">资讯</a>
+      </nav>
+      <div class="header-search" role="search">
+        <input type="search" id="searchInput" placeholder="搜索番剧…" aria-label="搜索番剧">
+        <button type="button" id="searchBtn" aria-label="搜索">⌕</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- 首屏 -->
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <span class="hero-badge">2026 秋季档</span>
+        <h1>哗咪动漫</h1>
+        <p class="hero-desc">汇集本季新番速递、经典作品深度解析、分类片单与社区追番讨论，为动漫爱好者提供发现值得投入时间的作品与话题的入口。</p>
+        <div class="hero-actions">
+          <a href="/#new-season" class="btn-primary">浏览新番速递</a>
+          <a href="/#deep-read" class="btn-ghost">阅读深度解析</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 300 300" fill="none">
+          <circle cx="150" cy="130" r="90" fill="#f5a623" opacity="0.15"/>
+          <rect x="60" y="90" width="180" height="120" rx="16" fill="#2d2d44" stroke="#f5a623" stroke-width="2"/>
+          <rect x="80" y="110" width="60" height="8" rx="4" fill="#f5a623" opacity="0.6"/>
+          <rect x="80" y="130" width="100" height="6" rx="3" fill="#ffffff" opacity="0.2"/>
+          <rect x="80" y="145" width="80" height="6" rx="3" fill="#ffffff" opacity="0.2"/>
+          <rect x="80" y="160" width="90" height="6" rx="3" fill="#ffffff" opacity="0.2"/>
+          <circle cx="200" cy="170" r="20" fill="#f5a623" opacity="0.8"/>
+          <path d="M195 170 L200 178 L210 163" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="150" cy="240" r="30" fill="#f5a623" opacity="0.1"/>
+          <circle cx="150" cy="240" r="8" fill="#f5a623" opacity="0.4"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 三栏布局 -->
+    <div class="layout-three">
+
+      <!-- 左侧频道索引 -->
+      <aside class="channel-index">
+        <h2>频道索引</h2>
+        <nav class="channel-list" aria-label="频道索引">
+          <a href="/#new-season"><span class="dot"></span>新番速递</a>
+          <a href="/#overview"><span class="dot"></span>领域概览</a>
+          <a href="/#featured"><span class="dot"></span>精选推荐</a>
+          <a href="/#category"><span class="dot"></span>番剧分类</a>
+          <a href="/#deep-read"><span class="dot"></span>深度解析</a>
+          <a href="/#guide"><span class="dot"></span>追番指南</a>
+          <a href="/#faq"><span class="dot"></span>常见问答</a>
+          <a href="/#comments"><span class="dot"></span>用户评论</a>
+          <a href="/#news"><span class="dot"></span>相关资讯</a>
+          <a href="/#ranking"><span class="dot"></span>热门榜单</a>
+        </nav>
+      </aside>
+
+      <!-- 中间主内容 -->
+      <main class="main-content">
+
+        <!-- 1. 领域概览 -->
+        <section class="section" id="overview">
+          <div class="section-header">
+            <h2>哗咪动漫领域概览</h2>
+          </div>
+          <div class="overview-text">
+            <p>哗咪动漫聚焦日本电视动画、剧场版动画与部分国产番剧的观看与讨论。当前秋季档（10 月—12 月）共有 40 余部新作开播，涵盖<strong>异世界冒险、日常治愈、悬疑推理、热血战斗、恋爱喜剧</strong>五大方向。其中《葬送的芙莉莲》第二季延续前作的高口碑，以慢节奏奇幻叙事获得 9.2 分评价；《药屋少女的呢喃》第二季凭借宫斗推理与细腻人设维持热度；原创动画《深夜重拳》则靠拳击题材与手绘作画吸引动作番观众。</p>
+            <p>经典旧作方面，2026 年多部十周年纪念作品推出重制或续篇，包括《冰菓》十周年特别篇、《进击的巨人》最终季编集版。适合补番的完整季度作品如《孤独摇滚！》《赛博朋克：边缘行者》仍在各平台保持较高点播量。选择观看方向时，可优先关注<strong>制作公司（MAPPA、京都动画、CloverWorks）</strong>与<strong>系列构成（花田十辉、横手美智子）</strong>，这两项信息对判断成片质量有较强参考价值。</p>
+          </div>
+        </section>
+
+        <!-- 2. 精选内容推荐 -->
+        <section class="section" id="featured">
+          <div class="section-header">
+            <h2>本季精选推荐</h2>
+            <a href="/#new-season" class="more-link">查看新番速递 →</a>
+          </div>
+          <div class="card-grid">
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/frieren-s2-01/400/300" alt="葬送的芙莉莲第二季主视觉" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">奇幻</span><span class="tag alt">公路片</span><span class="tag">治愈</span></div>
+                <h3>葬送的芙莉莲 第二季</h3>
+                <p class="card-desc">延续一级魔法使考试后的旅程，芙莉莲与费伦、修塔尔克深入北方高原。本季重点刻画芙莉莲对时间与记忆的新认知，作画与配乐维持剧场版水准。</p>
+                <div class="card-meta"><span>更新至第 6 集</span><span class="score">9.2 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/kusuriya-s2-02/400/300" alt="药屋少女的呢喃第二季剧照" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">古风</span><span class="tag alt">推理</span><span class="tag">宫廷</span></div>
+                <h3>药屋少女的呢喃 第二季</h3>
+                <p class="card-desc">猫猫继续在后宫破解毒物与谜案，本季新增“外廷篇”线索，壬氏身世逐步揭开。推理逻辑与药理知识结合，适合喜欢慢热解谜的观众。</p>
+                <div class="card-meta"><span>更新至第 18 集</span><span class="score">8.8 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/undead-unluck-03/400/300" alt="不死不运动画主视觉" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">热血</span><span class="tag alt">超能力</span><span class="tag">战斗</span></div>
+                <h3>不死不运 第二季</h3>
+                <p class="card-desc">安迪与风子对抗“不可触”组织，本季进入秋篇。大卫社的制作在关键战斗回投入密集作画，能力设定与战术配合是看点核心。</p>
+                <div class="card-meta"><span>更新至第 9 集</span><span class="score">8.5 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/shikanoko-04/400/300" alt="鹿乃子乃子虎视眈眈剧照" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">喜剧</span><span class="tag alt">校园</span><span class="tag">日常</span></div>
+                <h3>鹿乃子乃子虎视眈眈</h3>
+                <p class="card-desc">以“鹿”为核心的荒诞校园喜剧，每集由多个短篇构成。节奏快、梗密度高，适合喜欢《pop 子和 pipi 美的日常》式无厘头风格的观众。</p>
+                <div class="card-meta"><span>全 12 集完结</span><span class="score">8.0 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/dandadan-05/400/300" alt="胆大党动画主视觉" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">奇幻</span><span class="tag alt">战斗</span><span class="tag">恋爱</span></div>
+                <h3>胆大党（DANDADAN）</h3>
+                <p class="card-desc">科学猴制作，将灵异与外星人元素混合。高速动作作画与角色反差萌是最大卖点，前六集已贡献多段高口碑战斗分镜。</p>
+                <div class="card-meta"><span>更新至第 7 集</span><span class="score">8.7 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/blue-box-06/400/300" alt="蓝色监狱第二季剧照" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">运动</span><span class="tag alt">足球</span><span class="tag">竞技</span></div>
+                <h3>蓝色监狱 第二季</h3>
+                <p class="card-desc">洁世一进入 U-20 代表队选拔篇，比赛密度提升。8bit 制作在关键射门场景使用 3D 辅助，战术讲解与心理博弈仍是核心。</p>
+                <div class="card-meta"><span>更新至第 10 集</span><span class="score">8.3 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/rezero-s3-07/400/300" alt="Re:从零开始的异世界生活第三季主视觉" width="400" height="300" loading="lazy">
+              <div class="card-body">
+                <div class="card-tags"><span class="tag">异世界</span><span class="tag alt">轮回</span><span class="tag">悬疑</span></div>
+                <h3>Re:从零开始的异世界生活 第三季</h3>
+                <p class="card-desc">水门都市篇正式开场，昴面临新的死亡回归循环。本季登场势力众多，信息密度高，建议补完第二季后连续观看。</p>
+                <div class="card-meta"><span>更新至第 5 集</span><span class="score">8.6 分</span></div>
+              </div>
+            </article>
+            <article class="anime-card">
+              <img src="https://picsum.photos/seed/trigun-stampede-08/400/300" alt="枪神斯托拉塔斯第二季剧照" width="400" height="300" loading="lazy">
+                <div class="card-body">
+                  <div class="card-tags"><span class="tag">科幻</span><span class="tag alt">西部</span><span class="tag">动作</span></div>
+                  <h3>枪神 斯托拉塔斯</h3>
+                  <p class="card-desc">法修与耐布兹的兄弟对决进入新阶段，3D 渲染与 2D 作画结合。适合想看高密度枪战与荒诞科幻世界观的观众。</p>
+                  <div class="card-meta"><span>更新至第 8 集</span><span class="score">8.4 分</span></div>
+                </div>
+              </article>
+          </div>
+        </section>
+
+        <!-- 3. 最新更新 -->
+        <section class="section" id="new-season">
+          <div class="section-header">
+            <h2>最新更新与动态</h2>
+            <span class="more-link">2026-11-08 更新</span>
+          </div>
+          <div class="update-list">
+            <div class="update-item">
+              <span class="update-time">今天 09:30</span>
+              <div><div class="update-title">《葬送的芙莉莲 第二季》第 6 集上线</div><div class="update-summary">北方高原篇进入新章节，芙莉莲与费伦遭遇新的魔族势力。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">今天 08:15</span>
+              <div><div class="update-title">《药屋少女的呢喃 第二季》第 18 集更新</div><div class="update-summary">外廷篇关键线索出现，猫猫与壬氏在宴席上联手破局。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">昨天 21:10</span>
+              <div><div class="update-title">《胆大党》第 7 集放出</div><div class="update-summary">厄卡伦与绫濑星子对战新妖怪，作画监督公开分镜稿。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">昨天 18:00</span>
+              <div><div class="update-title">《蓝色监狱 第二季》第 10 集上线</div><div class="update-summary">U-20 选拔赛第三场，洁世一与糸师凛首次同队配合。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">11 月 6 日</span>
+              <div><div class="update-title">《Re:从零开始的异世界生活 第三季》第 5 集更新</div><div class="update-summary">水门都市防御战开启，昴的“死亡回归”触发新分歧。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">11 月 5 日</span>
+              <div><div class="update-title">《深夜重拳》第 4 集上线</div><div class="update-summary">原创拳击动画，本集拳台作画由汤浅政明团队协力。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">11 月 3 日</span>
+              <div><div class="update-title">《不死不运 第二季》第 9 集更新</div><div class="update-summary">秋篇最终战前篇，安迪解锁新能力形态。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">11 月 1 日</span>
+              <div><div class="update-title">《鹿乃子乃子虎视眈眈》全 12 集完结</div><div class="update-summary">最终回“鹿 vs 鹿”对决，官方宣布 Blu-ray 收录未播出短篇。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">10 月 30 日</span>
+              <div><div class="update-title">《枪神 斯托拉塔斯》第 8 集更新</div><div class="update-summary">法修与耐布兹在沙丘遗迹正面交锋，3D 长镜头引发讨论。</div></div>
+            </div>
+            <div class="update-item">
+              <span class="update-time">10 月 28 日</span>
+              <div><div class="update-title">《冰菓》十周年特别篇预告公开</div><div class="update-summary">京都动画发布 15 秒特报，古典部四人组回归，2027 年 1 月播出。</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. 分类入口 -->
+        <section class="section" id="category">
+          <div class="section-header">
+            <h2>按类型浏览番剧</h2>
+          </div>
+          <div class="category-grid">
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">⚔️</div>
+              <h3>热血战斗</h3>
+              <p>不死不运、胆大党、蓝色监狱</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">🌿</div>
+              <h3>日常治愈</h3>
+              <p>芙莉莲、鹿乃子、摇曳露营</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">🔍</div>
+              <h3>悬疑推理</h3>
+              <p>药屋少女、冰菓、奇巧计程车</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">💕</div>
+              <h3>恋爱喜剧</h3>
+              <p>胆大党、辉夜大小姐、堀与宫村</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">🚀</div>
+              <h3>异世界冒险</h3>
+              <p>Re:从零、无职转生、盾之勇者</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">🎨</div>
+              <h3>原创动画</h3>
+              <p>深夜重拳、赛博朋克、莉可丽丝</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">⚽</div>
+              <h3>运动竞技</h3>
+              <p>蓝色监狱、排球少年、强风吹拂</p>
+            </a>
+            <a href="/#featured" class="category-item">
+              <div class="category-icon">🎬</div>
+              <h3>剧场版动画</h3>
+              <p>铃芽之旅、灌篮高手、芙莉莲外传</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- 5. 深度解析 -->
+        <section class="section" id="deep-read">
+          <div class="section-header">
+            <h2>深度解析：2026 秋季新番的观看维度</h2>
+          </div>
+          <div class="deep-read">
+            <h3>异世界与奇幻题材的类型分化</h3>
+            <p>本季奇幻类作品可大致分为“慢节奏公路片”与“高强度轮回叙事”两类。《葬送的芙莉莲 第二季》延续前作对时间与记忆的细腻刻画，叙事重心放在人物关系的变化而非外部冲突，适合喜欢《虫师》《奇诺之旅》式气质的观众。相比之下，《Re:从零开始的异世界生活 第三季》以密集的信息量和“死亡回归”机制驱动剧情，每集信息密度极高，更适合习惯连续追看、愿意反复回看细节的观众。</p>
+            <p>另一部值得注意的奇幻作品《胆大党》则介于两者之间：它既有高速战斗与超能力设定，也穿插男女主角的日常互动。科学猴的制作在动作场景上保持了《乒乓》《恶魔人 Crybaby》以来的高水准，而恋爱喜剧元素降低了入门门槛。选择时可以先看前三集，如果喜欢“打斗 + 轻松日常”的混合节奏，这部作品值得投入时间。</p>
+
+            <h3>古风推理与药理知识的结合方式</h3>
+            <p>《药屋少女的呢喃 第二季》的核心看点在于用“药理与毒物”作为推理工具。每一集通常包含一个独立的小谜题，同时推进壬氏身世与后宫权力结构的长线悬念。对于不熟悉古风背景的观众，前几集可能需要适应“后宫位阶”与“官职名称”的信息量；但每集谜题的解决方式都建立在具体的植物、矿物或食物特性上，即使跳过部分宫廷戏，也能获得解谜的乐趣。</p>
+            <ul>
+              <li><strong>入门建议：</strong>先看第一季第 1—3 集，了解猫猫的基本性格与后宫设定。</li>
+              <li><strong>长线看点：</strong>壬氏与猫猫的关系变化、外廷与内廷的权力博弈。</li>
+              <li><strong>同类对比：</strong>与《冰菓》的日常推理相比，本作更依赖专业知识；与《大逆转裁判》相比，本作的推理节奏更慢、更偏日常。</li>
+            </ul>
+
+            <h3>运动番与竞技叙事的评判维度</h3>
+            <p>《蓝色监狱 第二季》与原创拳击番《深夜重拳》代表了运动题材的两种路径。前者以“自我中心”的足球哲学为内核，每一场比赛都围绕“如何让自己进球”展开，战术讲解与心理博弈的密度较高。判断这类作品是否值得追看，可以关注三个维度：<strong>比赛规则是否清晰、角色成长是否有递进、关键分镜是否具有冲击力</strong>。第二季前 10 集在这三项上表现稳定，U-20 选拔赛的规则说明比第一季更简洁。</p>
+            <p>《深夜重拳》则更接近《明日之丈》式的热血拳击叙事，作画上强调拳头的重量感与擂台的空间关系。这类原创动画的优势在于不受原作篇幅限制，节奏紧凑；劣势则是前几集需要快速建立角色动机。如果前三集能让你对主角的拳击理由产生共情，后续的擂台战会更有代入感。</p>
+
+            <h3>续作与十周年纪念作品的选择策略</h3>
+            <p>本季多部作品为续作或纪念企划，包括《Re:从零开始的异世界生活 第三季》《葬送的芙莉莲 第二季》《不死不运 第二季》以及《冰菓》十周年特别篇。对于没有看过前作的观众，建议按以下顺序判断：先确认前作是否属于“连续剧情型”（如 Re:从零、不死不运），若是则需要补完前作关键集数；再确认续作是否更换制作公司或系列构成。芙莉莲与药屋少女的制作阵容基本延续前作，观感连贯性较强。</p>
+            <p>《冰菓》十周年特别篇目前仅有 15 秒特报，预计 2027 年 1 月播出。如果此前未接触过京都动画的日常推理风格，可以先看 TV 版第 1—5 集“古典部系列”入门，再决定是否追特别篇。这类作品的优势在于单集完成度高，不需要连续追看。</p>
+          </div>
+        </section>
+
+        <!-- 6. 体验指南 -->
+        <section class="section" id="guide">
+          <div class="section-header">
+            <h2>追番指南：从哪部开始看</h2>
+          </div>
+          <div class="guide-steps">
+            <div class="guide-step">
+              <div class="step-num">1</div>
+              <div class="step-content">
+                <h3>先确定自己偏好的节奏</h3>
+                <p>喜欢慢节奏、重氛围的，可以从《葬送的芙莉莲 第二季》或《药屋少女的呢喃 第二季》开始；偏好高强度、多反转的，优先看《Re:从零开始的异世界生活 第三季》或《胆大党》。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">2</div>
+              <div class="step-content">
+                <h3>用前三集判断是否继续</h3>
+                <p>大多数季番在第三集左右会展现核心冲突与制作水准。如果前三集没有让你产生“想知道后续”的冲动，不必因为评分高而勉强追完。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">3</div>
+              <div class="step-content">
+                <h3>关注制作公司与系列构成</h3>
+                <p>MAPPA、京都动画、CloverWorks 等公司的作品在作画稳定性上有一定保障；系列构成花田十辉、横手美智子的脚本节奏通常较为紧凑。这两项信息比单纯看 PV 更有参考价值。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">4</div>
+              <div class="step-content">
+                <h3>同类作品对比着看</h3>
+                <p>如果喜欢《药屋少女的呢喃》，可以对比《冰菓》的日常推理；如果喜欢《胆大党》的战斗与恋爱混合风格，可以回看《灵能百分百》。对比观看有助于判断自己更看重哪一方面的体验。</p>
+              </div>
+            </div>
+            <div class="guide-step">
+              <div class="step-num">5</div>
+              <div class="step-content">
+                <h3>续作先补前作关键集</h3>
+                <p>《Re:从零开始的异世界生活 第三季》建议补完第二季第 1—12 集；《不死不运 第二季》至少看完第一季第 12—24 集。补番时优先关注与主线相关的集数，支线可酌情跳过。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. FAQ -->
+        <section class="section" id="faq">
+          <div class="section-header">
+            <h2>常见问答</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>《葬送的芙莉莲 第二季》需要先看第一季吗？</summary>
+              <div class="faq-answer">建议先看第一季前 12 集，了解芙莉莲与辛美尔小队的关系以及“送葬”的设定。第二季开篇直接承接一级魔法使考试后的时间线，跳过前作会损失不少情感铺垫。</div>
+            </details>
+            <details class="faq-item">
+              <summary>《药屋少女的呢喃》和《冰菓》的推理风格有什么区别？</summary>
+              <div class="faq-answer">《药屋少女的呢喃》的推理建立在药理、毒物与后宫权力关系上，谜题解决依赖专业知识；《冰菓》则是日常生活中的小谜团，更注重人物心理与校园氛围。前者适合喜欢解谜的观众，后者适合喜欢慢节奏校园故事的观众。</div>
+            </details>
+            <details class="faq-item">
+              <summary>《胆大党》的观看顺序是怎样的？</summary>
+              <div class="faq-answer">《胆大党》按 TV 版顺序观看即可，第 1—6 集为“厄卡伦篇”，第 7 集开始进入“邪视篇”。两篇在剧情上有连续性，建议按播出顺序追看。</div>
+            </details>
+            <details class="faq-item">
+              <summary>2026 年秋季新番一般多久更新一集？</summary>
+              <div class="faq-answer">大部分 TV 动画为每周一集，每集约 24 分钟。部分作品因制作原因会停播一周，具体以各平台排播为准。本季《葬送的芙莉莲 第二季》为每周五更新，《药屋少女的呢喃 第二季》为每周六更新。</div>
+            </details>
+            <details class="faq-item">
+              <summary>第一次看《Re:从零开始的异世界生活》从哪一季开始？</summary>
+              <div class="faq-answer">从 2016 年第一季开始看。第一季前 12 集介绍“死亡回归”机制与主要角色，第二季展开“圣域篇”，第三季进入“水门都市篇”。跳过前两季会丢失大量关键设定。</div>
+            </details>
+            <details class="faq-item">
+              <summary>《蓝色监狱 第二季》和第一季在剧情上有什么区别？</summary>
+              <div class="faq-answer">第一季聚焦“蓝色监狱”内部选拔，第二季进入 U-20 代表队选拔篇，比赛对手从内部竞争者变为国际级青年队。战术复杂度和角色间配合的描写明显增加，建议补完第一季最后 5 集再进入第二季。</div>
+            </details>
+          </div>
+        </section>
+
+        <!-- 8. 用户评论 -->
+        <section class="section" id="comments">
+          <div class="section-header">
+            <h2>社区评论</h2>
+          </div>
+          <div class="comment-grid">
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">芙</div><span class="comment-name">芙莉莲的旅行日记</span></div>
+              <p class="comment-text">第二季第 6 集芙莉莲在高原上回忆辛美尔那段，配乐一出来直接泪目。这种慢节奏的叙事真的只有芙莉莲能做好。</p>
+              <p class="comment-target">评论《葬送的芙莉莲 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">猫</div><span class="comment-name">猫猫的试毒日常</span></div>
+              <p class="comment-text">药屋少女第 18 集的宴席推理太精彩了，猫猫用三种食材的相克关系反推毒物来源，逻辑完全说得通。</p>
+              <p class="comment-target">评论《药屋少女的呢喃 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">胆</div><span class="comment-name">厄卡伦的跟班</span></div>
+              <p class="comment-text">胆大党第 7 集打戏作画爆炸，科学猴还是稳。就是每集结束得太突然了，根本不够看。</p>
+              <p class="comment-target">评论《胆大党》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">蓝</div><span class="comment-name">洁世一的球鞋</span></div>
+              <p class="comment-text">蓝色监狱第二季的战术讲解比第一季清楚多了，U-20 那场洁世一和糸师凛的配合画得很有层次。</p>
+              <p class="comment-target">评论《蓝色监狱 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">雷</div><span class="comment-name">雷姆的流星锤</span></div>
+              <p class="comment-text">Re:零第三季水门都市篇信息量好大，第 5 集看完回头重看了一遍前四集才理清时间线。白狐社这次做得不错。</p>
+              <p class="comment-target">评论《Re:从零开始的异世界生活 第三季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">鹿</div><span class="comment-name">鹿乃子的小跟班</span></div>
+              <p class="comment-text">鹿乃子完结了有点舍不得，这种每集几个短篇的节奏很适合下饭。最终回鹿 vs 鹿那段笑死。</p>
+              <p class="comment-target">评论《鹿乃子乃子虎视眈眈》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">枪</div><span class="comment-name">法修的枪套</span></div>
+              <p class="comment-text">枪神第 8 集沙丘遗迹那段 3D 长镜头太强了，法修和耐布兹的兄弟对决看得人热血沸腾。</p>
+              <p class="comment-target">评论《枪神 斯托拉塔斯》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">不</div><span class="comment-name">安迪的围巾</span></div>
+              <p class="comment-text">不死不运第二季秋篇的战斗节奏比第一季更紧凑，安迪新形态的设定也解释得清楚。就是更新太慢了。</p>
+              <p class="comment-target">评论《不死不运 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">冰</div><span class="comment-name">古典部的社刊</span></div>
+              <p class="comment-text">冰菓十周年特别篇终于有消息了，15 秒特报里折木和千反田的背影就够我激动半天。京阿尼加油。</p>
+              <p class="comment-target">评论《冰菓》十周年特别篇</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">深</div><span class="comment-name">深夜拳击手</span></div>
+              <p class="comment-text">深夜重拳第 4 集的拳台作画确实有汤浅政明的味道，拳头砸下去的重量感很足。剧情目前还比较常规，期待后续。</p>
+              <p class="comment-target">评论《深夜重拳》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">芙</div><span class="comment-name">费伦的魔法书</span></div>
+              <p class="comment-text">芙莉莲第二季的作画确实稳，但我觉得节奏比第一季慢了一些。不过这种慢下来的感觉反而更贴合主题。</p>
+              <p class="comment-target">评论《葬送的芙莉莲 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">药</div><span class="comment-name">壬氏的小跟班</span></div>
+              <p class="comment-text">药屋少女外廷篇的壬氏身世线终于有进展了，第 18 集那个眼神暗示太明显了。希望这季能把这条线讲完。</p>
+              <p class="comment-target">评论《药屋少女的呢喃 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">胆</div><span class="comment-name">绫濑星子的粉丝</span></div>
+              <p class="comment-text">胆大党第 7 集邪视篇的节奏好快，一集打了两场。虽然爽，但有点担心后面会赶进度。</p>
+              <p class="comment-target">评论《胆大党》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">蓝</div><span class="comment-name">糸师凛的围巾</span></div>
+              <p class="comment-text">蓝色监狱第二季的作画在关键射门时还是有点 3D 感，不过整体战术布局比第一季更有看头。洁世一的成长线很清晰。</p>
+              <p class="comment-target">评论《蓝色监狱 第二季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">雷</div><span class="comment-name">爱蜜莉雅的精灵</span></div>
+              <p class="comment-text">Re:零第三季的水门都市地图太复杂了，建议看之前先补一下第二季结尾的势力分布。白狐社的改编节奏目前看还是稳的。</p>
+              <p class="comment-target">评论《Re:从零开始的异世界生活 第三季》</p>
+            </div>
+            <div class="comment-card">
+              <div class="comment-user"><div class="comment-avatar">枪</div><span class="comment-name">耐布兹的刀</span></div>
+              <p class="comment-text">枪神这一季的 3D 渲染比第一季自然多了，沙丘遗迹那场戏的空间感很好。兄弟对决的台词也写得有分量。</p>
+              <p class="comment-target">评论《枪神 斯托拉塔斯》</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. 相关资讯 -->
+        <section class="section" id="news">
+          <div class="section-header">
+            <h2>相关资讯</h2>
+          </div>
+          <div class="news-list">
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/frieren-news-01/600/400" alt="葬送的芙莉莲第二季制作访谈" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-date">2026-11-07</div>
+                <h3 class="news-title">《葬送的芙莉莲 第二季》制作组访谈：高原篇的作画挑战</h3>
+                <p class="news-summary">监督与作画监督在访谈中透露，本季高原场景使用了大量手绘背景，第 6 集的魔族战分镜耗时三个月完成。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/kusuriya-news-02/600/400" alt="药屋少女的呢喃外廷篇剧照" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-date">2026-11-05</div>
+                <h3 class="news-title">《药屋少女的呢喃》外廷篇新增声优阵容公布</h3>
+                <p class="news-summary">官方公开外廷篇三位新角色的声优，包括一位与壬氏身世相关的关键人物，预计第 20 集登场。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/dandadan-news-03/600/400" alt="胆大党第7集分镜稿" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-date">2026-11-03</div>
+                <h3 class="news-title">《胆大党》公开第 7 集分镜稿，邪视篇战斗设计曝光</h3>
+                <p class="news-summary">科学猴在官方社交账号发布第 7 集部分分镜，展示厄卡伦与妖怪对战的作画流程，引发社区转发。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/bluelock-news-04/600/400" alt="蓝色监狱第二季U20选拔赛" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-date">2026-10-30</div>
+                <h3 class="news-title">《蓝色监狱 第二季》U-20 选拔赛规则图解公开</h3>
+                <p class="news-summary">官方发布选拔赛规则图解，说明三场比赛的积分与晋级条件，帮助观众理解第二季的比赛结构。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/hyouka-news-05/600/400" alt="冰菓十周年特别篇预告视觉" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-date">2026-10-28</div>
+                <h3 class="news-title">《冰菓》十周年特别篇 15 秒特报公开，2027 年 1 月播出</h3>
+                <p class="news-summary">京都动画发布特别篇首段影像，古典部四人组回归，折木与千反田的对话片段成为社区讨论焦点。</p>
+              </div>
+            </article>
+            <article class="news-item">
+              <img src="https://picsum.photos/seed/shinya-news-06/600/400" alt="深夜重拳拳击场景" width="600" height="400" loading="lazy">
+              <div class="news-content">
+                <div class="news-date">2026-10-25</div>
+                <h3 class="news-title">原创动画《深夜重拳》第 4 集作画团队公开</h3>
+                <p class="news-summary">官方披露第 4 集拳台场景由汤浅政明团队协力完成，手绘拳击作画成为本季原创番的话题之一。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 10. 相关推荐 -->
+        <section class="section" id="recommend">
+          <div class="section-header">
+            <h2>延伸方向推荐</h2>
+          </div>
+          <div class="tag-cloud">
+            <a href="/#featured">公路片奇幻</a>
+            <a href="/#featured">后宫推理</a>
+            <a href="/#featured">超能力战斗</a>
+            <a href="/#featured">校园日常喜剧</a>
+            <a href="/#featured">足球竞技</a>
+            <a href="/#featured">异世界轮回</a>
+            <a href="/#featured">拳击原创动画</a>
+            <a href="/#featured">京都动画日常推理</a>
+          </div>
+        </section>
+
+        <!-- 11. 排行榜 -->
+        <section class="section" id="ranking">
+          <div class="section-header">
+            <h2>本周热门榜单</h2>
+          </div>
+          <div class="ranking-list">
+            <div class="ranking-item">
+              <span class="rank-num">1</span>
+              <div class="rank-info"><h3>葬送的芙莉莲 第二季</h3><p>奇幻 / 公路片 · 更新至第 6 集</p></div>
+              <span class="rank-score">9.2</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">2</span>
+              <div class="rank-info"><h3>药屋少女的呢喃 第二季</h3><p>古风 / 推理 · 更新至第 18 集</p></div>
+              <span class="rank-score">8.8</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">3</span>
+              <div class="rank-info"><h3>胆大党（DANDADAN）</h3><p>奇幻 / 战斗 · 更新至第 7 集</p></div>
+              <span class="rank-score">8.7</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">4</span>
+              <div class="rank-info"><h3>Re:从零开始的异世界生活 第三季</h3><p>异世界 / 轮回 · 更新至第 5 集</p></div>
+              <span class="rank-score">8.6</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">5</span>
+              <div class="rank-info"><h3>不死不运 第二季</h3><p>热血 / 超能力 · 更新至第 9 集</p></div>
+              <span class="rank-score">8.5</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">6</span>
+              <div class="rank-info"><h3>枪神 斯托拉塔斯</h3><p>科幻 / 西部 · 更新至第 8 集</p></div>
+              <span class="rank-score">8.4</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">7</span>
+              <div class="rank-info"><h3>蓝色监狱 第二季</h3><p>运动 / 足球 · 更新至第 10 集</p></div>
+              <span class="rank-score">8.3</span>
+            </div>
+            <div class="ranking-item">
+              <span class="rank-num">8</span>
+              <div class="rank-info"><h3>鹿乃子乃子虎视眈眈</h3><p>喜剧 / 校园 · 全 12 集完结</p></div>
+              <span class="rank-score">8.0</span>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 右侧辅助栏 -->
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <h3><span class="accent-dot"></span>热榜速览</h3>
+          <div class="hot-list">
+            <div class="hot-item"><span class="hot-num">1</span><div><div class="hot-title">葬送的芙莉莲 第二季</div><div class="hot-meta">9.2 分 · 更新至第 6 集</div></div></div>
+            <div class="hot-item"><span class="hot-num">2</span><div><div class="hot-title">药屋少女的呢喃 第二季</div><div class="hot-meta">8.8 分 · 更新至第 18 集</div></div></div>
+            <div class="hot-item"><span class="hot-num">3</span><div><div class="hot-title">胆大党</div><div class="hot-meta">8.7 分 · 更新至第 7 集</div></div></div>
+            <div class="hot-item"><span class="hot-num">4</span><div><div class="hot-title">Re:从零开始的异世界生活 第三季</div><div class="hot-meta">8.6 分 · 更新至第 5 集</div></div></div>
+            <div class="hot-item"><span class="hot-num">5</span><div><div class="hot-title">不死不运 第二季</div><div class="hot-meta">8.5 分 · 更新至第 9 集</div></div></div>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <h3><span class="accent-dot"></span>更新流</h3>
+          <div class="update-stream">
+            <div class="stream-item"><div class="stream-time">今天 09:30</div>芙莉莲 第二季 第 6 集</div>
+            <div class="stream-item"><div class="stream-time">今天 08:15</div>药屋少女 第二季 第 18 集</div>
+            <div class="stream-item"><div class="stream-time">昨天 21:10</div>胆大党 第 7 集</div>
+            <div class="stream-item"><div class="stream-time">昨天 18:00</div>蓝色监狱 第二季 第 10 集</div>
+            <div class="stream-item"><div class="stream-time">11 月 6 日</div>Re:零 第三季 第 5 集</div>
+            <div class="stream-item"><div class="stream-time">11 月 5 日</div>深夜重拳 第 4 集</div>
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <h3><span class="accent-dot"></span>分类快捷入口</h3>
+          <div class="tag-cloud" style="gap:6px;">
+            <a href="/#category" style="padding:5px 12px;font-size:12px;">热血战斗</a>
+            <a href="/#category" style="padding:5px 12px;font-size:12px;">日常治愈</a>
+            <a href="/#category" style="padding:5px 12px;font-size:12px;">悬疑推理</a>
+            <a href="/#category" style="padding:5px 12px;font-size:12px;">恋爱喜剧</a>
+            <a href="/#category" style="padding:5px 12px;font-size:12px;">异世界</a>
+            <a href="/#category" style="padding:5px 12px;font-size:12px;">运动竞技</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 100 100" width="30" height="30" aria-hidden="true">
+            <circle cx="50" cy="50" r="46" fill="#f5a623"/>
+            <circle cx="38" cy="42" r="8" fill="#1a1a2e"/>
+            <circle cx="62" cy="42" r="8" fill="#1a1a2e"/>
+            <path d="M35 65 Q50 80 65 65" stroke="#1a1a2e" stroke-width="5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <span>哗咪动漫</span>
+        </div>
+        <p class="footer-desc">聚焦日本 TV 动画、剧场版与国产番剧的观看与讨论，提供新番速递、分类片单、深度解析与社区评论。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <a href="/#new-season">新番速递</a>
+        <a href="/#featured">精选推荐</a>
+        <a href="/#category">番剧分类</a>
+        <a href="/#deep-read">深度解析</a>
+      </div>
+      <div class="footer-col">
+        <h4>社区</h4>
+        <a href="/#comments">用户评论</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#guide">追番指南</a>
+        <a href="/#ranking">热门榜单</a>
+      </div>
+      <div class="footer-col">
+        <h4>资讯与动态</h4>
+        <a href="/#news">相关资讯</a>
+        <a href="/#overview">领域概览</a>
+        <a href="/#recommend">延伸推荐</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 哗咪动漫 · 内容聚合示例页</span>
+      <span>部分内容为示例数据，仅用于展示页面结构</span>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      // 搜索交互：过滤卡片与列表中的可见文本
+      var searchInput = document.getElementById('searchInput');
+      var searchBtn = document.getElementById('searchBtn');
+      if (!searchInput || !searchBtn) return;
+
+      function doSearch() {
+        var q = searchInput.value.trim().toLowerCase();
+        var targets = document.querySelectorAll('.anime-card, .update-item, .news-item, .ranking-item');
+        var anyVisible = false;
+        targets.forEach(function(el) {
+          var text = (el.textContent || '').toLowerCase();
+          if (!q || text.indexOf(q) !== -1) {
+            el.style.display = '';
+            if (q) anyVisible = true;
+          } else {
+            el.style.display = 'none';
+          }
+        });
+        // 无结果反馈
+        var noResult = document.getElementById('noResultMsg');
+        if (!noResult) {
+          noResult = document.createElement('div');
+          noResult.id = 'noResultMsg';
+          noResult.style.cssText = 'padding:16px;text-align:center;color:#7a7a8a;font-size:14px;background:#fff;border-radius:12px;border:1px solid #e6e2dc;margin:10px 0;';
+          noResult.textContent = '没有找到匹配的番剧，试试其他关键词。';
+          var main = document.querySelector('.main-content');
+          if (main) main.insertBefore(noResult, main.firstChild);
+        }
+        if (q && !anyVisible) {
+          noResult.style.display = 'block';
+        } else {
+          noResult.style.display = 'none';
+        }
+      }
+
+      searchBtn.addEventListener('click', doSearch);
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doSearch();
+      });
+      // 清空时恢复全部
+      searchInput.addEventListener('search', function() {
+        if (!searchInput.value.trim()) {
+          document.querySelectorAll('.anime-card, .update-item, .news-item, .ranking-item').forEach(function(el) {
+            el.style.display = '';
+          });
+          var noResult = document.getElementById('noResultMsg');
+          if (noResult) noResult.style.display = 'none';
+        }
+      });
+    })();
+  </script>
+
+</body>
+  </html>
