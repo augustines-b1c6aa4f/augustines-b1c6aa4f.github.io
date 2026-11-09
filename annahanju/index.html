@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安娜韩剧 - 剧情解析与观众讨论平台</title>
+  <meta name="description" content="安娜韩剧聚焦李安娜的谎言人生，提供剧情解析、人物关系、名场面合集、观众评论与同类剧推荐，适合剧迷与初次接触者了解核心看点。">
+  <meta name="keywords" content="安娜剧情,李安娜,韩剧解析,谎言人生,角色关系">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23705a4b'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23f3e9dc' font-family='serif'%3EA%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f8f5f0;
+      --surface: #ffffff;
+      --surface-soft: #f2ede8;
+      --text: #2c2420;
+      --text-secondary: #6b5e56;
+      --text-muted: #9a8b82;
+      --border: #e2d9d1;
+      --primary: #705a4b;
+      --primary-light: #a38875;
+      --accent: #c49a6c;
+      --accent-soft: #f3e3d4;
+      --shadow: 0 2px 12px rgba(44, 36, 32, 0.06);
+      --radius: 10px;
+      --radius-sm: 6px;
+      --font: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+      --font-sans: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      --header-height: 62px;
+      --announce-height: 38px;
+      --sticky-offset: calc(var(--header-height) + var(--announce-height) + 16px);
+      --container: 1280px;
+      --gap: 24px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-offset); }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* sticky */
+    .announce-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--primary);
+      color: #f3e9dc;
+      height: var(--announce-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      padding: 0 16px;
+      font-family: var(--font-sans);
+    }
+    .announce-bar span { margin-right: 8px; opacity: 0.8; }
+    .announce-bar strong { color: #fff; font-weight: 600; }
+
+    .site-header {
+      position: sticky;
+      top: var(--announce-height);
+      z-index: 99;
+      background: rgba(248, 245, 240, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      height: var(--header-height);
+    }
+    .header-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-logo svg { width: 32px; height: 32px; }
+    .brand-text {
+      font-family: var(--font);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+    .main-nav {
+      display: flex;
+      gap: 4px;
+      flex: 1;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .main-nav::-webkit-scrollbar { display: none; }
+    .main-nav a {
+      font-size: 14px;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+    .main-nav a:hover { background: var(--surface-soft); color: var(--primary); }
+    .header-actions { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-ghost {
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      background: var(--surface);
+      transition: border-color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--primary-light); }
+
+    /* layout */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: var(--gap);
+      padding: var(--gap) 0 48px;
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(135deg, #f2ede8 0%, #e8dfd6 100%);
+      border-radius: var(--radius);
+      padding: 48px 40px;
+      margin-top: var(--gap);
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 32px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: 60px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(196, 154, 108, 0.12);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-kicker {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .hero h1 {
+      font-family: var(--font);
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 24px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 28px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #5a4739; }
+    .btn-secondary {
+      display: inline-block;
+      padding: 10px 28px;
+      border: 1px solid var(--primary-light);
+      color: var(--primary);
+      border-radius: 24px;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(112, 90, 75, 0.06); }
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual svg { width: 100%; max-width: 260px; height: auto; }
+
+    /* section */
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      margin-bottom: var(--gap);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .section-title {
+      font-family: var(--font);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      position: relative;
+      padding-left: 14px;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section-more {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .section-more:hover { color: var(--primary); }
+
+    /* card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface-soft);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(44, 36, 32, 0.08);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: #ddd;
+    }
+    .card-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-title:hover { color: var(--primary); }
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .tag-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 10px;
+    }
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 8px;
+      border-top: 1px solid var(--border);
+    }
+    .card-meta span { display: flex; align-items: center; gap: 3px; }
+
+    /* list */
+    .compact-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .compact-list li:last-child { border-bottom: none; }
+    .list-index {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--surface-soft);
+      color: var(--text-muted);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    .list-index.top { background: var(--accent); color: #fff; }
+    .list-content { flex: 1; }
+    .list-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .list-title:hover { color: var(--primary); }
+    .list-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* category */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px 8px;
+      background: var(--surface-soft);
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      text-align: center;
+    }
+    .category-item:hover { border-color: var(--accent); background: #fff; }
+    .category-icon { font-size: 24px; margin-bottom: 6px; }
+    .category-name { font-size: 13px; font-weight: 500; color: var(--text); }
+    .category-count { font-size: 11px; color: var(--text-muted); }
+
+    /* deep read */
+    .deep-read h3 {
+      font-family: var(--font);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 24px 0 10px;
+    }
+    .deep-read h3:first-child { margin-top: 0; }
+    .deep-read p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .deep-read ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .deep-read li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 4px;
+    }
+
+    /* faq */
+    .faq-list details {
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .faq-list details:first-child { padding-top: 0; }
+    .faq-list details:last-child { border-bottom: none; padding-bottom: 0; }
+    .faq-list summary {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-list details[open] summary::after { content: '−'; color: var(--primary); }
+    .faq-list p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      padding-top: 10px;
+      padding-left: 4px;
+    }
+
+    /* comment */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .comment-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .comment-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .comment-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--primary);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .comment-body { flex: 1; }
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .comment-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .comment-date { font-size: 11px; color: var(--text-muted); }
+    .comment-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* news */
+    .news-list { display: flex; flex-direction: column; gap: 16px; }
+    .news-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .news-thumb {
+      width: 100px;
+      height: 68px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      flex-shrink: 0;
+      background: #ddd;
+    }
+    .news-body { flex: 1; }
+    .news-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    .news-title:hover { color: var(--primary); }
+    .news-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .news-excerpt {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* related tags */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-cloud a {
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .tag-cloud a:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* timeline */
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 18px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -18px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .timeline-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: var(--gap); }
+    .sidebar .section { margin-bottom: 0; }
+    .sidebar .section-title { font-size: 16px; }
+
+    .hot-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .hot-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .hot-rank {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background: var(--surface-soft);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .hot-rank.top1 { background: #c0392b; color: #fff; }
+    .hot-rank.top2 { background: #e67e22; color: #fff; }
+    .hot-rank.top3 { background: #f1c40f; color: #fff; }
+    .hot-text {
+      font-size: 13px;
+      color: var(--text);
+      flex: 1;
+      line-height: 1.4;
+    }
+    .hot-text:hover { color: var(--primary); }
+
+    /* footer */
+    .site-footer {
+      background: var(--primary);
+      color: #d9cfc7;
+      padding: 40px 0 24px;
+      margin-top: 16px;
+    }
+    .footer-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gap);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    .footer-brand {
+      font-family: var(--font);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-desc {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #b8a99e;
+      max-width: 280px;
+    }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #b8a99e;
+      padding: 3px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      font-size: 12px;
+      color: #9a8b82;
+      line-height: 1.7;
+    }
+
+    /* responsive */
+    @media (max-width: 1024px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; padding: 32px 28px; }
+      .hero-visual { display: none; }
+      .hero h1 { font-size: 34px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .category-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 740px) {
+      :root { --gap: 16px; --header-height: 56px; }
+      .header-inner { gap: 12px; }
+      .brand-text { font-size: 17px; }
+      .main-nav a { font-size: 12px; padding: 4px 8px; }
+      .header-actions { display: none; }
+      .hero { padding: 28px 20px; }
+      .hero h1 { font-size: 28px; }
+      .hero-desc { font-size: 14px; }
+      .container { padding: 0 16px; }
+      .section { padding: 20px 16px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .news-thumb { width: 80px; height: 56px; }
+      .main-nav { gap: 0; }
+    }
+    @media (max-width: 360px) {
+      .hero h1 { font-size: 24px; }
+      .category-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+  <!-- 吸顶公告条 -->
+  <div class="announce-bar" role="banner">
+    <span>📌</span> 本周更新：<strong>李安娜身世谜团第 9 集解析</strong> 已上线 · 新增 6 条观众长评
+  </div>
+
+  <!-- 吸顶页头 -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/#hero" class="brand-logo" aria-label="安娜韩剧首页">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <rect width="40" height="40" rx="8" fill="#705a4b"/>
+          <text x="20" y="27" font-size="20" text-anchor="middle" fill="#f3e9dc" font-family="Georgia, serif" font-weight="bold">A</text>
+        </svg>
+        <span class="brand-text">安娜韩剧</span>
+      </a>
+      <nav class="main-nav" aria-label="主题导航">
+        <a href="/#overview">剧情概览</a>
+        <a href="/#characters">人物关系</a>
+        <a href="/#episodes">分集解析</a>
+        <a href="/#scenes">名场面</a>
+        <a href="/#comments">观众评论</a>
+        <a href="/#faq">常见问答</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/#overview" class="btn-ghost">开始阅读</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- 首屏 -->
+      <section class="hero" id="hero">
+        <div class="hero-content">
+          <div class="hero-kicker">K-Drama Insight</div>
+          <h1>安娜韩剧</h1>
+          <p class="hero-desc">
+            聚焦李安娜从谎言到崩塌的完整轨迹——剧情分集拆解、人物关系图谱、名场面复盘、观众真实讨论，以及同类型“谎言人生”题材的延伸推荐。无论你是刚入坑的新观众，还是想二刷细节的老剧迷，这里都有可逐条查阅的剧情节点与角色分析。
+          </p>
+          <div class="hero-actions">
+            <a href="/#episodes" class="btn-primary">查看分集解析</a>
+            <a href="/#characters" class="btn-secondary">人物关系图谱</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg viewBox="0 0 260 200" fill="none">
+            <rect x="20" y="30" width="220" height="140" rx="12" fill="#ffffff" stroke="#e2d9d1" stroke-width="1.5"/>
+            <circle cx="80" cy="80" r="28" fill="#f3e3d4" stroke="#c49a6c" stroke-width="1.5"/>
+            <text x="80" y="86" font-size="20" text-anchor="middle" fill="#705a4b" font-family="Georgia, serif">李</text>
+            <line x1="120" y1="66" x2="210" y2="66" stroke="#e2d9d1" stroke-width="4" stroke-linecap="round"/>
+            <line x1="120" y1="82" x2="190" y2="82" stroke="#e2d9d1" stroke-width="4" stroke-linecap="round"/>
+            <line x1="120" y1="98" x2="200" y2="98" stroke="#e2d9d1" stroke-width="4" stroke-linecap="round"/>
+            <rect x="60" y="120" width="140" height="8" rx="4" fill="#f2ede8"/>
+            <rect x="60" y="136" width="100" height="8" rx="4" fill="#f2ede8"/>
+            <rect x="60" y="152" width="120" height="8" rx="4" fill="#f2ede8"/>
+            <circle cx="220" cy="40" r="6" fill="#c49a6c" opacity="0.5"/>
+            <circle cx="30" cy="160" r="4" fill="#c49a6c" opacity="0.3"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- 主内容 + 侧栏 -->
+      <div class="main-grid">
+        <div class="main-content">
+
+          <!-- 板块1：主题领域概览 -->
+          <section class="section" id="overview">
+            <div class="section-header">
+              <h2 class="section-title">剧情概览：谎言人生的四个阶段</h2>
+            </div>
+            <div style="font-size:14px;color:var(--text-secondary);line-height:1.9;">
+              <p style="margin-bottom:12px;">
+                《安娜》围绕女主角李安娜（裴秀智 饰）从一个小镇女孩，通过层层谎言伪造学历、身份、婚姻，最终进入上流社会的过程展开。全剧 6 集，每集约 60 分钟，以倒叙与插叙交替推进。故事按“起源—攀升—维持—崩塌”四个阶段铺陈，每个阶段对应不同的心理动机和社会关系网。
+              </p>
+              <p style="margin-bottom:12px;">
+                剧中核心矛盾并不在于谎言能否被识破，而在于安娜在每一个节点做出的选择——从第一次冒用姐姐的身份证，到伪造延世大学学历，再到以“海归钢琴家”身份嫁入财阀家庭。每一次选择都伴随着具体的代价与牺牲，包括与原生家庭的决裂、对丈夫的隐瞒、以及对身边人的利用。观众跟随她的视角，体验一种“向上攀爬的窒息感”。
+              </p>
+              <p>
+                本页汇聚了分集剧情解析、人物关系图谱、名场面时间线、观众评论与相关剧集推荐，适合想快速了解故事脉络的新观众，也适合二刷时查找具体细节的老剧迷。所有内容按可检索的条目组织，方便逐条对照。
+              </p>
+            </div>
+          </section>
+
+          <!-- 板块2：精选内容推荐 -->
+          <section class="section" id="characters">
+            <div class="section-header">
+              <h2 class="section-title">精选内容推荐：角色与名场面</h2>
+              <a href="/#episodes" class="section-more">全部分集 →</a>
+            </div>
+            <div class="card-grid">
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/anna-li-01/400/300" width="400" height="300" loading="lazy" alt="李安娜在钢琴前演奏的场景剧照">
+                <div class="card-body">
+                  <h3 class="card-title">李安娜：从谎言到崩塌的完整轨迹</h3>
+                  <div class="card-tags">
+                    <span class="tag">主角解析</span>
+                    <span class="tag tag-outline">裴秀智</span>
+                  </div>
+                  <p class="card-desc">梳理李安娜从伪造学历到嫁入豪门的每个关键选择，以及谎言如何逐步反噬她的生活。</p>
+                  <div class="card-meta"><span>👁 2.4万</span><span>⭐ 9.2</span></div>
+                </div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/anna-husband-02/400/300" width="400" height="300" loading="lazy" alt="安娜丈夫志勋在书房中的场景">
+                <div class="card-body">
+                  <h3 class="card-title">丈夫志勋：被蒙在鼓里的财阀继承人</h3>
+                  <div class="card-tags">
+                    <span class="tag">人物关系</span>
+                    <span class="tag tag-outline">婚姻谎言</span>
+                  </div>
+                  <p class="card-desc">分析志勋对安娜的信任如何建立，以及他在得知真相前后的态度变化轨迹。</p>
+                  <div class="card-meta"><span>👁 1.8万</span><span>⭐ 8.7</span></div>
+                </div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/anna-scene-03/400/300" width="400" height="300" loading="lazy" alt="安娜在宴会中与宾客周旋的场景">
+                <div class="card-body">
+                  <h3 class="card-title">第 4 集宴会戏：谎言的第一次公开考验</h3>
+                  <div class="card-tags">
+                    <span class="tag">名场面</span>
+                    <span class="tag tag-outline">社交谎言</span>
+                  </div>
+                  <p class="card-desc">安娜在财阀家宴上被追问学历细节，临场编造留学经历，这场戏是全剧紧张感最强的段落之一。</p>
+                  <div class="card-meta"><span>👁 3.1万</span><span>⭐ 9.5</span></div>
+                </div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/anna-mother-04/400/300" width="400" height="300" loading="lazy" alt="安娜与母亲在旧居对话的场景">
+                <div class="card-body">
+                  <h3 class="card-title">母亲角色：谎言背后的原生家庭推力</h3>
+                  <div class="card-tags">
+                    <span class="tag">人物关系</span>
+                    <span class="tag tag-outline">原生家庭</span>
+                  </div>
+                  <p class="card-desc">安娜母亲对她的期待与忽视如何成为谎言的起点，母女关系是全剧情感最复杂的部分。</p>
+                  <div class="card-meta"><span>👁 1.5万</span><span>⭐ 8.9</span></div>
+                </div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/anna-ending-05/400/300" width="400" height="300" loading="lazy" alt="安娜在雪地中行走的结局画面">
+                <div class="card-body">
+                  <h3 class="card-title">结局解析：安娜最终走向何处</h3>
+                  <div class="card-tags">
+                    <span class="tag">结局讨论</span>
+                    <span class="tag tag-outline">开放式收尾</span>
+                  </div>
+                  <p class="card-desc">最后一集没有给出明确惩罚，而是留下安娜在雪地中行走的开放画面，观众对结局的解读分化明显。</p>
+                  <div class="card-meta"><span>👁 4.2万</span><span>⭐ 8.4</span></div>
+                </div>
+              </article>
+              <article class="card">
+                <img class="card-img" src="https://picsum.photos/seed/anna-friend-06/400/300" width="400" height="300" loading="lazy" alt="安娜与高中同学重逢的场景">
+                <div class="card-body">
+                  <h3 class="card-title">高中同学智媛：唯一知道真相的人</h3>
+                  <div class="card-tags">
+                    <span class="tag">人物关系</span>
+                    <span class="tag tag-outline">真相线索</span>
+                  </div>
+                  <p class="card-desc">智媛是安娜过去唯一的连接点，她的出现让安娜的谎言开始出现裂缝，是剧情转折的关键人物。</p>
+                  <div class="card-meta"><span>👁 1.2万</span><span>⭐ 8.6</span></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- 板块3：最新更新 / 动态 -->
+          <section class="section" id="episodes">
+            <div class="section-header">
+              <h2 class="section-title">分集解析与最新动态</h2>
+            </div>
+            <ul class="compact-list">
+              <li>
+                <span class="list-index top">1</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">第 1 集：安娜第一次冒用姐姐身份</a>
+                  <p class="list-desc">2026-11-08 · 小镇女孩李安娜在首尔求职受挫，第一次借用姐姐的身份证进入补习班。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index top">2</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">第 2 集：伪造延世大学学历的完整过程</a>
+                  <p class="list-desc">2026-11-07 · 安娜通过中介制作假毕业证与成绩单，并成功应聘为钢琴家教。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index top">3</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">第 3 集：与志勋的相遇与身份包装</a>
+                  <p class="list-desc">2026-11-06 · 安娜在相亲场合自称“海归钢琴家”，志勋对她的谈吐产生好感。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index">4</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">第 4 集：财阀家宴上的学历追问</a>
+                  <p class="list-desc">2026-11-05 · 志勋母亲详细询问安娜的留学经历，安娜临场编造维也纳音乐学院的细节。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index">5</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">第 5 集：智媛出现与谎言裂缝</a>
+                  <p class="list-desc">2026-11-04 · 高中同学智媛在首尔偶遇安娜，发现她对外宣称的学历与过去完全不符。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index">6</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">第 6 集：结局与安娜的雪地行走</a>
+                  <p class="list-desc">2026-11-03 · 志勋得知部分真相后选择沉默，安娜在雪地中独自离开，结局保持开放。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index">7</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">追加更新：第 9 集预告解析</a>
+                  <p class="list-desc">2026-11-08 · 制作方放出第 9 集预告片，暗示安娜的假学历将被公开举报，社区讨论量单日增长 120%。</p>
+                </div>
+              </li>
+              <li>
+                <span class="list-index">8</span>
+                <div class="list-content">
+                  <a href="/#episodes" class="list-title">观众票选：第 4 集宴会戏为全剧最佳场面</a>
+                  <p class="list-desc">2026-11-06 · 本页发起的投票中，宴会戏以 42% 得票率位居第一，其次是结局雪地戏。</p>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <!-- 板块4：分类入口 -->
+          <section class="section" id="categories">
+            <div class="section-header">
+              <h2 class="section-title">按类型查找内容</h2>
+            </div>
+            <div class="category-grid">
+              <a href="/#characters" class="category-item">
+                <div class="category-icon">👤</div>
+                <div class="category-name">角色解析</div>
+                <div class="category-count">12 篇</div>
+              </a>
+              <a href="/#episodes" class="category-item">
+                <div class="category-icon">📖</div>
+                <div class="category-name">分集剧情</div>
+                <div class="category-count">9 集</div>
+              </a>
+              <a href="/#scenes" class="category-item">
+                <div class="category-icon">🎬</div>
+                <div class="category-name">名场面</div>
+                <div class="category-count">8 个</div>
+              </a>
+              <a href="/#comments" class="category-item">
+                <div class="category-icon">💬</div>
+                <div class="category-name">观众评论</div>
+                <div class="category-count">16 条</div>
+              </a>
+              <a href="/#analysis" class="category-item">
+                <div class="category-icon">🔍</div>
+                <div class="category-name">深度解析</div>
+                <div class="category-count">4 篇</div>
+              </a>
+              <a href="/#faq" class="category-item">
+                <div class="category-icon">❓</div>
+                <div class="category-name">常见问答</div>
+                <div class="category-count">6 问</div>
+              </a>
+              <a href="/#news" class="category-item">
+                <div class="category-icon">📰</div>
+                <div class="category-name">相关资讯</div>
+                <div class="category-count">6 条</div>
+              </a>
+              <a href="/#related" class="category-item">
+                <div class="category-icon">🔗</div>
+                <div class="category-name">延伸推荐</div>
+                <div class="category-count">8 个</div>
+              </a>
+            </div>
+          </section>
+
+          <!-- 板块5：深度解析正文 -->
+          <section class="section" id="analysis">
+            <div class="section-header">
+              <h2 class="section-title">深度解析：谎言叙事的三个核心维度</h2>
+            </div>
+            <div class="deep-read">
+              <h3>一、动机层：为什么安娜选择说谎</h3>
+              <p>
+                剧中反复出现一个对比：安娜在首尔求职时被面试官评价“简历太平凡”，而她姐姐的简历上写着“延世大学钢琴系”。这个细节并非偶然，它指向韩国社会中学历与出身的强绑定关系。安娜的谎言并非出于贪婪，而是出于一种“被看见”的渴望——她想要获得与能力匹配的尊重，但社会只认学历标签。
+              </p>
+              <p>
+                母亲的角色进一步强化了这种动机。安娜母亲在剧中有一句台词：“你姐姐能考上，你为什么不能？”这句话将家庭期待转化为具体的压力源。安娜没有选择复读或另寻出路，而是直接借用姐姐的身份，说明她将“学历”视为唯一可通行的路径。这种认知偏差是后续所有谎言的起点。
+              </p>
+
+              <h3>二、维持层：谎言如何自我加固</h3>
+              <p>
+                安娜进入上流社会后，谎言并没有减少，反而不断叠加。每一次社交场合的提问都要求她补充新的细节：留学国家、导师姓名、比赛获奖经历。剧中用大量细节展示她如何提前准备“话术本”，如何在手机备忘录里记录编造的履历。这些行为让谎言从“一次性冒用”变成“持续运营”。
+              </p>
+              <ul>
+                <li><strong>第一层：</strong>学历伪造——延世大学钢琴系毕业，实际为高中毕业。</li>
+                <li><strong>第二层：</strong>经历伪造——声称在维也纳留学并举办过独奏会。</li>
+                <li><strong>第三层：</strong>家庭背景伪造——将小镇出身包装为首尔中产家庭。</li>
+                <li><strong>第四层：</strong>社交关系伪造——在丈夫面前隐瞒与智媛的过往。</li>
+              </ul>
+              <p>
+                每增加一层，安娜需要维护的信息量就翻倍。剧中第 4 集宴会戏正是这种压力的集中爆发：她需要在十分钟内回答关于导师、曲目、比赛的三轮追问，任何一处卡顿都可能引发怀疑。
+              </p>
+
+              <h3>三、崩塌层：真相的暴露路径</h3>
+              <p>
+                安娜的谎言并非被某一个“大事件”揭穿，而是通过多条线索同时松动。智媛的出现是第一条裂缝，她掌握着安娜高中时期的真实信息；志勋母亲对安娜学历的核查是第二条裂缝；而安娜自己在压力下不断出现的记忆混乱——比如把编造的留学年份说错——是第三条裂缝。剧中没有安排戏剧性的公开揭穿，而是让谎言在持续维护中自然疲劳，这种处理方式比直接惩罚更令人窒息。
+              </p>
+              <p>
+                结局中安娜在雪地行走的镜头，可以理解为一种“没有终点的流放”。她没有回到原生家庭，也没有留在财阀家中，而是处于两者之间的空白地带。这种开放式收尾与全剧的谎言主题形成呼应：当一个人用谎言构建了全部社会关系，真相大白后便无处可归。
+              </p>
+            </div>
+          </section>
+
+          <!-- 板块6：体验指南 -->
+          <section class="section" id="guide">
+            <div class="section-header">
+              <h2 class="section-title">观看顺序与判断指南</h2>
+            </div>
+            <div style="font-size:14px;color:var(--text-secondary);line-height:1.9;">
+              <p style="margin-bottom:12px;">
+                如果你是第一次接触《安娜》，建议按以下顺序观看和查阅：先看第 1—2 集建立对安娜动机的理解，然后跳到第 4 集宴会戏感受谎言的紧张感，最后再看第 5—6 集的崩塌过程。第 3 集相对平缓，主要交代人物关系，可以在二刷时补看。
+              </p>
+              <p style="margin-bottom:12px;">
+                判断一个分集解析是否值得读，可以看它是否包含具体的时间节点和人物对话细节。比如“第 4 集 23 分 15 秒，安娜被问到导师姓名时停顿了 2 秒”这类信息，比单纯概括剧情更有参考价值。本页的分集条目均标注了关键时间点和具体对话内容，方便逐条对照原片。
+              </p>
+              <p>
+                如果看完《安娜》想找同类型剧集，可以从“谎言人生”和“女性向上攀爬”两个维度延伸。前者推荐《我的名字》中的身份伪装线，后者推荐《小小姐们》中的阶层跨越叙事。两者与《安娜》的共同点在于：主角都通过非正常手段试图改变命运，但代价各不相同。
+              </p>
+            </div>
+          </section>
+
+          <!-- 板块7：FAQ -->
+          <section class="section" id="faq">
+            <div class="section-header">
+              <h2 class="section-title">常见问答</h2>
+            </div>
+            <div class="faq-list">
+              <details>
+                <summary>《安娜》一共几集？每集多长时间？</summary>
+                <p>全剧共 6 集，每集约 60 分钟。第 1—2 集主要交代安娜的出身和第一次冒用身份的过程，第 3—4 集聚焦她与志勋的婚姻及社交圈的谎言维持，第 5—6 集是谎言崩塌与结局。另有第 9 集预告片于 2026 年 11 月 8 日放出，正片尚未上线。</p>
+              </details>
+              <details>
+                <summary>李安娜为什么要伪造学历？</summary>
+                <p>直接原因是求职受挫——她投递的简历因“学历不突出”被多次拒绝。深层原因是家庭压力，母亲反复拿她与考上延世大学的姐姐比较。剧中第 1 集用一场面试戏和一场家庭晚餐戏交代了这两个推力。</p>
+              </details>
+              <details>
+                <summary>《安娜》和《我的名字》有什么区别？</summary>
+                <p>两者都涉及身份伪装，但方向不同：《安娜》是主动伪造学历和履历向上攀爬，《我的名字》是被动进入犯罪组织后以假身份卧底。叙事重心上，《安娜》侧重心理压力和社交周旋，《我的名字》侧重动作场面和复仇线。如果喜欢《安娜》中宴会戏的紧张感，可能会对《我的名字》的卧底戏也感兴趣。</p>
+              </details>
+              <details>
+                <summary>第 4 集宴会戏具体发生了什么？</summary>
+                <p>安娜随志勋参加家族晚宴，志勋母亲邀请了几位亲友到场。席间一位客人问起安娜在维也纳的留学经历，随后连续追问导师姓名、主修曲目、毕业年份。安娜临场编造了导师“克劳斯·穆勒”和毕业演奏曲目“拉赫玛尼诺夫第二钢琴协奏曲”，勉强过关。这场戏共持续约 12 分钟，是全剧紧张感最集中的段落。</p>
+              </details>
+              <details>
+                <summary>结局安娜去了哪里？</summary>
+                <p>最后一集没有明确交代安娜的最终去向。画面停在她在雪地中独自行走，既没有回到母亲家，也没有留在志勋的别墅。导演在采访中表示这是一个“开放但确定”的结局——确定的是她无法再回到谎言构建的生活，开放的是她将以什么身份继续生活。</p>
+              </details>
+              <details>
+                <summary>第一次看《安娜》应该从哪一集开始？</summary>
+                <p>建议从第 1 集按顺序看。第 1 集交代了安娜的动机和第一次冒用身份的具体过程，如果跳过会缺少对角色行为的理解基础。如果时间有限，至少要看第 1 集前半段和第 4 集宴会戏，这两部分覆盖了谎言叙事的起点和高潮。</p>
+              </details>
+            </div>
+          </section>
+
+          <!-- 板块8：用户评论 -->
+          <section class="section" id="comments">
+            <div class="section-header">
+              <h2 class="section-title">观众评论（16 条）</h2>
+            </div>
+            <div class="comment-list">
+              <div class="comment-item">
+                <div class="comment-avatar">林</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">林间有风</span><span class="comment-date">2026-11-08</span></div>
+                  <p class="comment-text">第 4 集宴会戏真的看得我手心冒汗。安娜回答导师名字前的那个停顿，感觉空气都凝固了。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">陈</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">陈默的默</span><span class="comment-date">2026-11-08</span></div>
+                  <p class="comment-text">结局我一开始觉得太仓促，后来想想雪地那个镜头其实挺合理的。她哪里都回不去了。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">赵</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">赵小满</span><span class="comment-date">2026-11-07</span></div>
+                  <p class="comment-text">秀智的演技比我想象中好很多，尤其是第 5 集被智媛认出来那段，眼神从镇定到慌乱的变化很细腻。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">周</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">周舟不周</span><span class="comment-date">2026-11-07</span></div>
+                  <p class="comment-text">说实话志勋这个角色有点工具人，他对安娜的信任来得太快了，缺少一点铺垫。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">吴</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">吴桐树</span><span class="comment-date">2026-11-06</span></div>
+                  <p class="comment-text">我反而觉得第 2 集伪造学历的过程拍得最好，一步一步来，没有突然开挂，很真实。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">郑</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">郑在玹我</span><span class="comment-date">2026-11-06</span></div>
+                  <p class="comment-text">有没有人注意第 3 集安娜手机备忘录里的字？全是编好的答案，连“导师喜欢喝什么咖啡”都记了。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">孙</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">孙小美</span><span class="comment-date">2026-11-05</span></div>
+                  <p class="comment-text">母亲这个角色让我又气又理解。她不是坏，就是那种典型的“为你好”式压力。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">李</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">李子树下</span><span class="comment-date">2026-11-05</span></div>
+                  <p class="comment-text">第 6 集最后十分钟我反复看了三遍，雪地里那个长镜头没有台词，但信息量比前面五集加起来都大。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">黄</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">黄桃罐头</span><span class="comment-date">2026-11-04</span></div>
+                  <p class="comment-text">剧情节奏其实有点慢，前两集差点弃剧，还好坚持到第 4 集，后面完全停不下来。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">刘</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">刘浪浪</span><span class="comment-date">2026-11-04</span></div>
+                  <p class="comment-text">智媛这个角色出现得太晚了，如果第 3 集就让她出场，张力可能会更早建立起来。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">徐</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">徐小缓</span><span class="comment-date">2026-11-03</span></div>
+                  <p class="comment-text">宴会戏里安娜说的那首拉赫玛尼诺夫第二钢琴协奏曲，我特意去听了，确实是很适合“装门面”的曲目。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">何</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">何首乌</span><span class="comment-date">2026-11-03</span></div>
+                  <p class="comment-text">我不觉得结局开放是缺点，反而如果安排她被抓或者自杀，就太顺拐了。这种悬而未决才符合整部剧的气质。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">高</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">高山流水</span><span class="comment-date">2026-11-02</span></div>
+                  <p class="comment-text">有没有人分析一下安娜每次说谎前的小动作？我注意到她会先摸一下耳后，不知道是不是演员设计的。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">马</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">马小马</span><span class="comment-date">2026-11-02</span></div>
+                  <p class="comment-text">第 5 集智媛和安娜在咖啡店对峙那场戏，台词写得很好，没有大吼大叫，但每句话都在逼她。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">朱</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">朱朱侠</span><span class="comment-date">2026-11-01</span></div>
+                  <p class="comment-text">整体看下来觉得 6 集有点短，志勋母亲那条线可以再展开一点，感觉她对安娜的怀疑解决得太快了。</p>
+                </div>
+              </div>
+              <div class="comment-item">
+                <div class="comment-avatar">胡</div>
+                <div class="comment-body">
+                  <div class="comment-meta"><span class="comment-name">胡桃夹子</span><span class="comment-date">2026-11-01</span></div>
+                  <p class="comment-text">看完去翻了裴秀智的采访，她说为了演好钢琴戏练了三个月，虽然镜头不多但手型确实很专业。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 板块9：相关资讯 -->
+          <section class="section" id="news">
+            <div class="section-header">
+              <h2 class="section-title">相关资讯</h2>
+            </div>
+            <div class="news-list">
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/anna-news-01/600/400" width="600" height="400" loading="lazy" alt="安娜第9集预告片截图">
+                <div class="news-body">
+                  <h3 class="news-title">《安娜》第 9 集预告片放出，假学历面临公开举报</h3>
+                  <div class="news-date">2026-11-08</div>
+                  <p class="news-excerpt">预告片中志勋收到匿名邮件，内含安娜的学历核查报告。社区讨论量单日增长 120%。</p>
+                </div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/anna-news-02/600/400" width="600" height="400" loading="lazy" alt="观众投票结果页面截图">
+                <div class="news-body">
+                  <h3 class="news-title">观众票选结果：第 4 集宴会戏获 42% 最佳场面票</h3>
+                  <div class="news-date">2026-11-06</div>
+                  <p class="news-excerpt">本页发起的“安娜最佳场面”投票结束，宴会戏、雪地结局、咖啡店对峙分列前三名。</p>
+                </div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/anna-news-03/600/400" width="600" height="400" loading="lazy" alt="裴秀智采访画面">
+                <div class="news-body">
+                  <h3 class="news-title">裴秀智采访：为演好钢琴戏每天练习四小时</h3>
+                  <div class="news-date">2026-11-04</div>
+                  <p class="news-excerpt">主演在采访中透露，虽然剧中钢琴镜头只有三场，但为了手型准确坚持练习了三个月。</p>
+                </div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/anna-news-04/600/400" width="600" height="400" loading="lazy" alt="编剧访谈截图">
+                <div class="news-body">
+                  <h3 class="news-title">编剧回应结局争议：雪地行走是唯一合理的收尾</h3>
+                  <div class="news-date">2026-11-03</div>
+                  <p class="news-excerpt">编剧在访谈中表示，安娜既不能回到过去也无法继续谎言，雪地是“两者之间的空白地带”。</p>
+                </div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/anna-news-05/600/400" width="600" height="400" loading="lazy" alt="观众讨论帖截图">
+                <div class="news-body">
+                  <h3 class="news-title">社区讨论焦点：志勋到底知不知道安娜在说谎？</h3>
+                  <div class="news-date">2026-11-02</div>
+                  <p class="news-excerpt">有观众逐帧分析志勋的微表情，认为他在第 5 集已经起疑但选择不追问，引发两派争论。</p>
+                </div>
+              </div>
+              <div class="news-item">
+                <img class="news-thumb" src="https://picsum.photos/seed/anna-news-06/600/400" width="600" height="400" loading="lazy" alt="同类剧集推荐封面">
+                <div class="news-body">
+                  <h3 class="news-title">同类型“谎言人生”剧集推荐：从安娜到小小姐们</h3>
+                  <div class="news-date">2026-10-30</div>
+                  <p class="news-excerpt">整理六部以女性通过非正常手段改变阶层为核心叙事的韩剧，对比各自的故事走向与结局处理。</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 板块10：相关推荐 -->
+          <section class="section" id="related">
+            <div class="section-header">
+              <h2 class="section-title">延伸推荐与关联标签</h2>
+            </div>
+            <div class="tag-cloud">
+              <a href="/#characters">裴秀智作品回顾</a>
+              <a href="/#analysis">谎言题材韩剧对比</a>
+              <a href="/#episodes">女性阶层跨越叙事</a>
+              <a href="/#scenes">宴会戏名场面合集</a>
+              <a href="/#comments">开放式结局讨论</a>
+              <a href="/#guide">同类型剧集观看顺序</a>
+              <a href="/#characters">智媛角色深度分析</a>
+              <a href="/#analysis">原生家庭与谎言动机</a>
+            </div>
+          </section>
+
+          <!-- 板块11：补充板块 - 名场面时间线 -->
+          <section class="section" id="scenes">
+            <div class="section-header">
+              <h2 class="section-title">名场面时间线</h2>
+            </div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-date">第 1 集 · 14 分 22 秒</div>
+                <div class="timeline-title">第一次冒用姐姐身份证</div>
+                <div class="timeline-desc">安娜在补习班前台掏出姐姐的身份证，镜头特写她手指微微发抖。</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">第 2 集 · 31 分 05 秒</div>
+                <div class="timeline-title">拿到假毕业证</div>
+                <div class="timeline-desc">安娜从中介手中接过延世大学假毕业证，在路灯下反复确认钢印位置。</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">第 4 集 · 23 分 15 秒</div>
+                <div class="timeline-title">宴会戏：导师姓名追问</div>
+                <div class="timeline-desc">志勋母亲的朋友问起维也纳导师，安娜停顿 2 秒后说出“克劳斯·穆勒”。</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">第 5 集 · 08 分 40 秒</div>
+                <div class="timeline-title">咖啡店对峙：智媛拆穿谎言</div>
+                <div class="timeline-desc">智媛说出安娜高中时的真实姓名，安娜手中的咖啡杯在桌面磕了一下。</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-date">第 6 集 · 52 分 10 秒</div>
+                <div class="timeline-title">结局：雪地行走</div>
+                <div class="timeline-desc">安娜穿着单薄的外套走在雪地里，镜头拉远，画面逐渐变白。</div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- 侧栏 -->
+        <aside class="sidebar" role="complementary">
+          <!-- 热门榜单 -->
+          <section class="section">
+            <div class="section-header">
+              <h2 class="section-title">本周热议 Top 5</h2>
+            </div>
+            <ul class="hot-list">
+              <li>
+                <span class="hot-rank top1">1</span>
+                <a href="/#episodes" class="hot-text">第 9 集预告：假学历举报信内容猜测</a>
+              </li>
+              <li>
+                <span class="hot-rank top2">2</span>
+                <a href="/#scenes" class="hot-text">宴会戏完整台词逐句拆解</a>
+              </li>
+              <li>
+                <span class="hot-rank top3">3</span>
+                <a href="/#characters" class="hot-text">志勋到底从哪一集开始起疑</a>
+              </li>
+              <li>
+                <span class="hot-rank">4</span>
+                <a href="/#analysis" class="hot-text">安娜母亲角色的争议性讨论</a>
+              </li>
+              <li>
+                <span class="hot-rank">5</span>
+                <a href="/#related" class="hot-text">同类型谎言题材韩剧横向对比</a>
+              </li>
+            </ul>
+          </section>
+
+          <!-- 补充信息 -->
+          <section class="section">
+            <div class="section-header">
+              <h2 class="section-title">剧集基本资料</h2>
+            </div>
+            <div style="font-size:13px;color:var(--text-secondary);line-height:1.9;">
+              <p><strong>导演：</strong>李祖英</p>
+              <p><strong>编剧：</strong>李祖英</p>
+              <p><strong>主演：</strong>裴秀智、郑恩彩、金准韩</p>
+              <p><strong>集数：</strong>6 集（已完结）</p>
+              <p><strong>平台：</strong>Coupang Play</p>
+              <p><strong>首播：</strong>2022 年 6 月 24 日</p>
+              <p style="margin-top:8px;font-size:12px;color:var(--text-muted);">第 9 集预告片于 2026 年 11 月 8 日放出，正片上线时间待定。</p>
+            </div>
+          </section>
+
+          <!-- 标签索引 -->
+          <section class="section">
+            <div class="section-header">
+              <h2 class="section-title">快速标签</h2>
+            </div>
+            <div class="tag-cloud" style="gap:6px;">
+              <a href="/#characters" style="font-size:12px;padding:4px 12px;">李安娜</a>
+              <a href="/#characters" style="font-size:12px;padding:4px 12px;">裴秀智</a>
+              <a href="/#episodes" style="font-size:12px;padding:4px 12px;">分集剧情</a>
+              <a href="/#scenes" style="font-size:12px;padding:4px 12px;">宴会戏</a>
+              <a href="/#analysis" style="font-size:12px;padding:4px 12px;">谎言叙事</a>
+              <a href="/#analysis" style="font-size:12px;padding:4px 12px;">原生家庭</a>
+              <a href="/#characters" style="font-size:12px;padding:4px 12px;">志勋</a>
+              <a href="/#characters" style="font-size:12px;padding:4px 12px;">智媛</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- 页尾 -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">安娜韩剧</div>
+          <p class="footer-desc">聚焦李安娜的谎言人生，提供分集解析、人物关系、名场面与观众讨论，帮助剧迷系统了解这部剧的叙事细节。</p>
+        </div>
+        <div class="footer-col">
+          <h4>内容板块</h4>
+          <a href="/#overview">剧情概览</a>
+          <a href="/#characters">角色解析</a>
+          <a href="/#episodes">分集剧情</a>
+          <a href="/#scenes">名场面</a>
+        </div>
+        <div class="footer-col">
+          <h4>讨论与问答</h4>
+          <a href="/#comments">观众评论</a>
+          <a href="/#faq">常见问答</a>
+          <a href="/#analysis">深度解析</a>
+          <a href="/#guide">观看指南</a>
+        </div>
+        <div class="footer-col">
+          <h4>延伸阅读</h4>
+          <a href="/#news">相关资讯</a>
+          <a href="/#related">延伸推荐</a>
+          <a href="/#categories">分类索引</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>部分内容为示例数据，仅用于展示页面结构。剧集信息以官方发布为准。</p>
+        <p style="margin-top:6px;">© 2026 安娜韩剧 · 内容聚合展示页</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+                                                 </html>
